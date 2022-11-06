@@ -2195,6 +2195,10 @@ pre code {
   border-radius: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+.from-border{
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .form-control {
@@ -10650,6 +10654,12 @@ a.text-dark:focus {
 
 .font-weight-semi-bold {
   font-weight: 600;
+}
+.magin-top{
+  margin-top: 35px;
+}
+.from-forgot{
+  padding-left: 20px;
 }
 
 [class^=flaticon-]:before,
