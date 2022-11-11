@@ -124,7 +124,10 @@ body {
     border-bottom: 1px solid #000000;
     line-height: 2;
 }
-
+.switch__title{
+    line-height: 1.5 !important;
+    margin-bottom: 25px;
+}
 .title {
     font-size: 34px;
     font-weight: 700;
@@ -133,7 +136,7 @@ body {
 }
 
 .description {
-    font-size: 14px;
+    font-size: 1.1rem;
     letter-spacing: 0.25px;
     text-align: center;
     line-height: 1.6;

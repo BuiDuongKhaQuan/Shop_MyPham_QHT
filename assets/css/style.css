@@ -174,7 +174,6 @@ a {
 }
 
 a:hover {
-  color: #ba6a62;
   text-decoration: underline;
 }
 
@@ -512,7 +511,7 @@ hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border-color);
 }
 
 small,
@@ -10739,7 +10738,9 @@ a.text-dark:focus {
   margin-top: -1px;
   background: #1C1C1C;
 }
-
+.img-height{
+  height: 285px ;
+}
 .offer img {
   position: absolute;
   max-width: 50%;
