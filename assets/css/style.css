@@ -4368,6 +4368,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 .nav-link:hover,
@@ -10658,6 +10659,11 @@ a.text-dark:focus {
 .magin-top{
   margin-top: 35px;
 }
+.pading{
+  padding-left: 50px;
+  padding-right: 50px;
+
+}
 .from-forgot{
   padding-left: 20px;
 }
@@ -10740,7 +10746,9 @@ a.text-dark:focus {
   max-height: 90%;
   bottom: 0;
 }
-
+.vendor-item{
+  height: 120px;
+}
 .offer .text-md-right img {
   left: 0;
 }
