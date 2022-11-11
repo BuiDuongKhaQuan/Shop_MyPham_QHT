@@ -102,4 +102,55 @@
     
 })(jQuery);
 
- 
+      var c1 = document.getElementById(1);
+      var c2 = document.getElementById(2);
+      var c3 = document.getElementById(3);
+      var c4 = document.getElementById(4);
+      var c5 = document.getElementById(5);
+      var c6 = document.getElementById(6);
+      var c7 = document.getElementById(7);
+      var c8 = document.getElementById(8);
+
+      c1.onclick = function () {
+        document.getElementById("change-title-0").innerHTML =
+          "Thực phẩm sức khỏe và làm đẹp";
+        document.getElementById("change-title-1").innerHTML =
+          "Thực phẩm sức khỏe và làm đẹp";
+      };
+      c2.onclick = function () { 
+        document.getElementById("change-title-0").innerHTML =
+          "Dụng cụ hỗ trợ làm đẹp";
+        document.getElementById("change-title-1").innerHTML =
+          "Dụng cụ hỗ trợ làm đẹp";
+        
+       
+      };
+      c3.onclick = function () {
+        document.getElementById("change-title-0").innerHTML =
+          "Thực phẩm giảm cân";
+        document.getElementById("change-title-1").innerHTML =
+          "Thực phẩm giảm cân";
+       
+      };
+      c4.onclick = function () {
+        document.getElementById("change-title-0").innerHTML = "Mỹ phẩm làm đẹp";
+        document.getElementById("change-title-1").innerHTML = "Mỹ phẩm làm đẹp";
+       
+      };
+      c5.onclick = function () {
+        document.getElementById("change-title-0").innerHTML = "Kem chống nắng";
+        document.getElementById("change-title-1").innerHTML = "Kem chống nắng";
+       
+      };
+      c6.onclick = function () {
+        document.getElementById("change-title-0").innerHTML = "Chăm sóc tóc";
+        document.getElementById("change-title-1").innerHTML = "Chăm sóc tóc";
+      };
+      c7.onclick = function () {
+        document.getElementById("change-title-0").innerHTML = "Chăm sóc da";
+        document.getElementById("change-title-1").innerHTML = "Chăm sóc da";
+      };
+      c8.onclick = function () {
+        document.getElementById("change-title-0").innerHTML = "Khuyến Mãi";
+        document.getElementById("change-title-1").innerHTML = "Khuyến Mãi";
+      };
