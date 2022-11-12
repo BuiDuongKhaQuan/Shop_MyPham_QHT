@@ -154,3 +154,4 @@
         document.getElementById("change-title-0").innerHTML = "Khuyến Mãi";
         document.getElementById("change-title-1").innerHTML = "Khuyến Mãi";
       };
+

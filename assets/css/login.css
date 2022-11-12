@@ -31,6 +31,25 @@ body {
     border-radius: 12px;
     overflow: hidden;
 }
+.home{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    background-color: #cad4f8;
+    width: 100%;
+    height: 30px;
+}
+.home>a{
+    text-decoration: none;
+    color: #000000;
+    padding: 10px;
+}
+.home>a:hover {
+    color: #f55fbb;
+}
 
 @media (max-width: 1200px) {
     .main {
