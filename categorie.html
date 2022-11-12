@@ -106,161 +106,162 @@
       </div>
     </div>
     <!-- Topbar End -->
+
     <!-- Navbar Start -->
-    <div class="container-fluid mb-5">
-      <div class="row border-top px-xl-5">
-        <div class="col-lg-3 d-none d-lg-block">
+    <div class="container-fluid mb-5 padding-0">
+      <div class="row border-top px-xl-5 px-xl-6">
+        <div
+          class="col-lg-padding col-lg-3 d-none d-lg-block navbar-link nav-item dropdown text-black-0"
+        >
           <a
-            class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
-            data-toggle="collapse"
+            href="#"
+            class="nav-link text-black-1"
+            data-toggle="dropdown"
             href="#navbar-vertical"
-            style="height: 65px; margin-top: 2px; padding: 0 30px"
-          >
-            <h6 class="m-0" style="font-size: 1.2rem">Danh mục</h6>
-            <i class="fa fa-angle-down text-dark"></i>
+            >Danh mục
+            <i class="fa fa-angle-down"></i>
           </a>
-          <nav
-            class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
-            id="navbar-vertical"
+
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="./categorie.html" class="dropdown-item"
+              >Thực phẩm sức khỏe và làm đẹp</a
+            >
+            <a href="./categorie.html" class="dropdown-item"
+              >Dụng cụ hỗ trợ làm đẹp</a
+            >
+            <a href="./categorie.html" class="dropdown-item"
+              >Thực phẩm giảm cân</a
+            >
+            <a href="./categorie.html" class="dropdown-item">Mỹ phẩm làm đẹp</a>
+            <a href="./categorie.html" class="dropdown-item">Kem chống nắng</a>
+            <a href="./categorie.html" class="dropdown-item">Chăm sóc tóc</a>
+            <a href="./categorie.html" class="dropdown-item">Chăm sóc da</a>
+            <a href="./categorie.html" class="dropdown-item">Khuyến mãi</a>
+          </div>
+        </div>
+
+        <div class="menu-flex-row mr-auto py-0">
+          <a href="home.html" class="nav-item nav-link active text-black-1"
+            >Trang chủ</a
           >
-            <div class="navbar-nav w-100 overflow-hidden">
-              <a id="1" class="nav-item nav-link"
+          <a href="product.html" class="nav-item nav-link text-black-1"
+            >Sản phẩm</a
+          >
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle text-black-1"
+              data-toggle="dropdown"
+              >Trang</a
+            >
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="cart.html" class="dropdown-item">Giỏ hàng</a>
+              <a href="checkout.html" class="dropdown-item">Thanh toán</a>
+            </div>
+          </div>
+          <a href="./blog.html" class="nav-item nav-link text-black-1">Blog</a>
+
+          <a href="contact.html" class="nav-item nav-link text-black-1"
+            >Liên hệ</a
+          >
+        </div>
+        <div class="navbar-nav ml-auto py-0 pading">
+          <a href="./login.html" class="nav-item nav-link text-black-1"
+            >Đăng nhập/Đăng ký</a
+          >
+        </div>
+      </div>
+
+      <div class="col-lg-13 col-lg-padding">
+        <nav
+          class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0"
+        >
+          <a href="./home.html" class="text-decoration-none d-block d-lg-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold">
+              <img
+                src="./assets/img/logo.png"
+                height="110px"
+                width="100%"
+                alt=""
+              />
+            </h1>
+          </a>
+
+          <button type="button" class="navbar-toggler dropdown">
+            <a href="#" class="" data-toggle="dropdown" href="#navbar-vertical">
+              <span class="navbar-toggler-icon"></span>
+            </a>
+
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="./categorie.html" class="dropdown-item"
                 >Thực phẩm sức khỏe và làm đẹp</a
               >
-              <a id="2" class="nav-item nav-link">Dụng cụ hỗ trợ làm đẹp</a>
-              <a id="3" class="nav-item nav-link">Thực phẩm giảm cân</a>
-              <a id="4" class="nav-item nav-link">Mỹ phẩm làm đẹp</a>
-              <a id="5" class="nav-item nav-link">Kem chống nắng</a>
-              <a id="6" class="nav-item nav-link">Chăm sóc tóc</a>
-              <a id="7" class="nav-item nav-link">Chăm sóc da</a>
-              <a id="8" class="nav-item nav-link">Khuyến Mãi</a>
+              <a href="./categorie.html" class="dropdown-item"
+                >Dụng cụ hỗ trợ làm đẹp</a
+              >
+              <a href="cart.html" class="dropdown-item">Thực phẩm giảm cân</a>
+              <a href="./categorie.html" class="dropdown-item"
+                >Mỹ phẩm làm đẹp</a
+              >
+              <a href="./categorie.html" class="dropdown-item"
+                >Kem chống nắng</a
+              >
+              <a href="./categorie.html" class="dropdown-item">Chăm sóc tóc</a>
+              <a href="./categorie.html" class="dropdown-item">Chăm sóc da</a>
+              <a href="./categorie.html" class="dropdown-item">Khuyến mãi</a>
+              <a href="./login.html" class="dropdown-item">Đăng nhập/Đăng ký</a>
             </div>
-          </nav>
-        </div>
-        <div class="col-lg-9">
-          <nav
-            class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0"
-          >
-            <a
-              href="./home.html"
-              class="text-decoration-none d-block d-lg-none"
-            >
-              <h1 class="m-0 display-5 font-weight-semi-bold">
-                <img
-                  src="./assets/img/logo.png"
-                  height="110px"
-                  width="100%"
-                  alt=""
-                />
-              </h1>
-            </a>
-
-            <button
-              type="button"
-              class="navbar-toggler"
-              data-toggle="collapse"
-              data-target="#navbarCollapse"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div
-              class="collapse navbar-collapse justify-content-between"
-              id="navbarCollapse"
-            >
-              <div class="navbar-nav mr-auto py-0">
-                <a href="home.html" class="nav-item nav-link active"
-                  >Trang chủ</a
-                >
-                <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
-                <div class="nav-item dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    >Trang</a
-                  >
-                  <div class="dropdown-menu rounded-0 m-0">
-                    <a href="cart.html" class="dropdown-item">Giỏ hàng</a>
-                    <a href="checkout.html" class="dropdown-item">Thanh toán</a>
-                  </div>
-                </div>
-                <a href="./blog.html" class="nav-item nav-link">Blog</a>
-
-                <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
-              </div>
-              <div class="navbar-nav ml-auto py-0">
-                <a href="./login.html" class="nav-item nav-link"
-                  >Đăng nhập/Đăng ký</a
-                >
-              </div>
+          </button>
+        </nav>
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="img-fluid"
+                src="https://theme.hstatic.net/1000006063/1000748098/14/home_slider_8_d_master.jpg?v=10864"
+                alt="Image"
+              />
             </div>
-          </nav>
-          <div id="header-carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active" style="height: 510px">
-                <img
-                  class="img-fluid"
-                  src="./assets/img/slide_1_img.png"
-                  alt="Image"
-                />
-                <!-- <div
-                  class="carousel-caption d-flex flex-column align-items-center justify-content-center"
-                >
-                  <div class="p-3" style="max-width: 700px">
-                    <h4
-                      class="text-light text-uppercase font-weight-medium mb-3"
-                    >
-                      10% Off Your First Order
-                    </h4>
-                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">
-                      Fashionable Dress
-                    </h3>
-                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
-                  </div>
-                </div> -->
-              </div>
-              <div class="carousel-item" style="height: 510px">
-                <img
-                  class="img-fluid"
-                  src="./assets/img/slide_2_img.png"
-                  alt="Image"
-                />
-                <!-- <div
-                  class="carousel-caption d-flex flex-column align-items-center justify-content-center"
-                >
-                  <div class="p-3" style="max-width: 700px">
-                    <h4
-                      class="text-light text-uppercase font-weight-medium mb-3"
-                    >
-                      10% Off Your First Order
-                    </h4>
-                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">
-                      Reasonable Price
-                    </h3>
-                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
-                  </div>
-                </div> -->
-              </div>
+            <div class="carousel-item">
+              <img
+                class="img-fluid"
+                src="https://theme.hstatic.net/1000006063/1000748098/14/home_slider_4_d_master.jpg?v=10864"
+                alt="Image"
+              />
             </div>
-            <a
-              class="carousel-control-prev"
-              href="#header-carousel"
-              data-slide="prev"
-            >
-              <div class="btn btn-dark" style="width: 45px; height: 45px">
-                <span class="carousel-control-prev-icon mb-n2"></span>
-              </div>
-            </a>
-            <a
-              class="carousel-control-next"
-              href="#header-carousel"
-              data-slide="next"
-            >
-              <div class="btn btn-dark" style="width: 45px; height: 45px">
-                <span class="carousel-control-next-icon mb-n2"></span>
-              </div>
-            </a>
+            <div class="carousel-item">
+              <img
+                class="img-fluid"
+                src="https://adminbeauty.hvnet.vn/Upload/Files/bannerweb-1111.png?width=1170&height=450&v=15042020"
+                alt="Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="img-fluid"
+                src="https://theme.hstatic.net/1000006063/1000748098/14/home_slider_4_d_master.jpg?v=10864"
+                alt="Image"
+              />
+            </div>
           </div>
+          <a
+            class="carousel-control-prev"
+            href="#header-carousel"
+            data-slide="prev"
+          >
+            <div class="btn btn-dark" style="width: 45px; height: 45px">
+              <span class="carousel-control-prev-icon mb-n2"></span>
+            </div>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#header-carousel"
+            data-slide="next"
+          >
+            <div class="btn btn-dark" style="width: 45px; height: 45px">
+              <span class="carousel-control-next-icon mb-n2"></span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -330,11 +331,6 @@
     <!-- Page Header End -->
     <!-- Products Start -->
     <div class="container-fluid pt-5">
-      <div class="text-center mb-4">
-        <h2 class="section-title px-5">
-          <span class="px-2">Trandy Products</span>
-        </h2>
-      </div>
       <div class="col-12 pb-1 pading">
         <div class="d-flex align-items-center justify-content-between mb-4">
           <form action="">
@@ -374,19 +370,26 @@
         </div>
       </div>
       <div class="row px-xl-5 pb-3">
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-1.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/p/r/promotions-auto-nuoc-hoa-nu-laura-anne-little-gold-dress-50ml_jFxZYQuqUVN1Gg7s_img_358x358_843626_fit_center.png
+"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Nước Hoa Nữ Laura Anne Little Gold Dress 50ml Little Gold Dress
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>942,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -394,28 +397,34 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-2.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/p/r/promotions-auto-nuoc-hoa-nu-laura-anne-little-black-dress-50ml_gAJpaEiUpuA2k9vF_img_358x358_843626_fit_center.png
+"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Nước Hoa Nữ Laura Anne Little Black Dress 50ml
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>355,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -423,28 +432,34 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-3.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/g/o/google-shopping-nuoc-hoa-nu-cacharel-noa-edt-vaporisateur-spray-100ml-1654915302_img_358x358_843626_fit_center.jpg
+"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Nước Hoa Nữ Cacharel Noa EDT Vaporisateur Spray 100ml
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>355,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -452,28 +467,34 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-4.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/n/u/nuoc-hoa-nu-de-memoria-04-dresden-chic-huong-sanh-dieu-30ml-1_img_358x358_843626_fit_center.jpg
+"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Nước Hoa Nữ De Memoria #04 Dresden Hương Sành Điệu 30ml
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>399,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -481,28 +502,34 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-5.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/n/u/nuoc-hoa-nu-de-memoria-06-grasse-huong-dang-yeu-30ml-1_img_358x358_843626_fit_center.jpg
+"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Nước Hoa Nữ De Memoria #06 Grasse Hương Đáng Yêu 30ml
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>142,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -510,28 +537,34 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-6.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/p/r/promotions-auto-kem-chong-nang-la-roche-posay-kiem-soat-dau-spf50-50ml_7Rv1LvwCvevdPGqh_img_358x358_843626_fit_center.png
+"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Kem Chống Nắng La Roche-Posay Kiểm Soát Dầu SPF50+ 50m
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>445,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -539,28 +572,34 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-7.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/f/a/facebook-dynamic-nuoc-tay-trang-l-oreal-tuoi-mat-cho-da-dau-hon-hop-400ml-1659077090_img_358x358_843626_fit_center.jpg
+"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Nước Tẩy Trang L'Oreal Tươi Mát Cho Da Dầu, Hỗn Hợp 400ml
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>285,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -568,28 +607,33 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
           <div class="card product-item border-0 mb-4">
             <div
               class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
             >
-              <img class="img-fluid w-100" src="img/product-8.jpg" alt="" />
+              <img
+                class="img-fluid w-100"
+                src="https://media.hasaki.vn/catalog/product/s/u/sua-rua-mat-cetaphil-diu-nhe-khong-xa-phong-500ml-1651199814_img_358x358_843626_fit_center.jpg"
+                alt=""
+              />
             </div>
             <div
               class="card-body border-left border-right text-center p-0 pt-4 pb-3"
             >
-              <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+              <h6 class="text-truncate mb-3">
+                Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu 60ml (Mẫu Mới 2022)
+              </h6>
               <div class="d-flex justify-content-center">
-                <h6>$123.00</h6>
+                <h6>199,000</h6>
                 <h6 class="text-muted ml-2"><del>$123.00</del></h6>
               </div>
             </div>
@@ -597,12 +641,11 @@
               class="card-footer d-flex justify-content-between bg-light border"
             >
               <a href="detail.html" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-              >
+                ><i class="fas fa-eye text-primary mr-1"></i
+              ></a>
               <a href="" class="btn btn-sm text-dark p-0"
-                ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                Cart</a
-              >
+                ><i class="fas fa-shopping-cart text-primary mr-1"></i
+              ></a>
             </div>
           </div>
         </div>

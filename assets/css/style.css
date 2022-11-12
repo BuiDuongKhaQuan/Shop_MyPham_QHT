@@ -72,7 +72,7 @@ body {
   line-height: 1.5;
   color: #6F6F6F;
   text-align: left;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -639,8 +639,8 @@ pre code {
 .container-lg,
 .container-xl {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  /* padding-right: 15px; */
+  /* padding-left: 15px; */
   margin-right: auto;
   margin-left: auto;
 }
@@ -727,6 +727,7 @@ pre code {
 .col-sm-10,
 .col-sm-11,
 .col-sm-12,
+.col-sm-13,
 .col-sm,
 .col-sm-auto,
 .col-md-1,
@@ -741,6 +742,7 @@ pre code {
 .col-md-10,
 .col-md-11,
 .col-md-12,
+.col-md-13,
 .col-md,
 .col-md-auto,
 .col-lg-1,
@@ -755,6 +757,8 @@ pre code {
 .col-lg-10,
 .col-lg-11,
 .col-lg-12,
+.col-lg-13,
+.col-lg-14,
 .col-lg,
 .col-lg-auto,
 .col-xl-1,
@@ -775,7 +779,13 @@ pre code {
   width: 100%;
   padding: 15px ;
 }
-
+.col-lg-padding{
+  padding: 0;
+}
+.col-lg-13{
+  margin: 0 auto;
+ 
+}
 .col {
   flex-basis: 0;
   flex-grow: 1;
@@ -1085,7 +1095,10 @@ pre code {
     flex: 0 0 100%;
     max-width: 100%;
   }
-
+  .col-sm-13 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
   .order-sm-first {
     order: -1;
   }
@@ -1294,10 +1307,13 @@ pre code {
   }
 
   .col-md-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 95%;
+    max-width: 95%;
   }
-
+  .col-md-13 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
   .order-md-first {
     order: -1;
   }
@@ -1499,7 +1515,14 @@ pre code {
     flex: 0 0 83.33333%;
     max-width: 83.33333%;
   }
-
+  .col-lg-13 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  }
+  .col-lg-14 {
+  flex: 0 0 20%;
+  max-width: 20%;
+   }
   .col-lg-11 {
     flex: 0 0 91.66667%;
     max-width: 91.66667%;
@@ -3444,7 +3467,7 @@ input[type="button"].btn-block {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
@@ -3630,6 +3653,9 @@ input[type="button"].btn-block {
   white-space: nowrap;
   background-color: transparent;
   border: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
 .dropdown-item:hover,
@@ -4486,6 +4512,11 @@ input[type="button"].btn-block {
   list-style: none;
 }
 
+.menu-flex-row{
+  display: flex;
+  flex: 2;
+  justify-content: center;
+}
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
@@ -4513,7 +4544,7 @@ input[type="button"].btn-block {
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
-  line-height: 1;
+  /* line-height: 1; */
   background-color: transparent;
   border: 1px solid transparent;
 }
@@ -4531,6 +4562,7 @@ input[type="button"].btn-block {
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%;
+  /* padding: 10px 20px; */
 }
 
 @media (max-width: 575.98px) {
@@ -6465,6 +6497,7 @@ a.close.disabled {
   margin-right: -100%;
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
+  height: 650px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6802,7 +6835,9 @@ button.bg-dark:focus {
   border: 1px solid var(--border-color) !important;
   border-radius: 20px;
 }
-
+.border-1{
+    border: 1px solid var(--border-color) !important;
+}
 .border-top {
   background-color: var(--background-color) !important;
   padding-bottom: 50px;
@@ -10285,7 +10320,16 @@ button.bg-dark:focus {
     margin-left: auto !important;
   }
 }
-
+.px-xl-6{
+  padding: 0;
+  height: 100px;
+  align-items: center;
+  /* position: fixed;
+  z-index: 100;
+  width: 100%;  
+  left: 0;
+  top: 0; */
+}
 .stretched-link::after {
   position: absolute;
   top: 0;
@@ -10497,6 +10541,26 @@ a.text-light:focus {
 .text-dark {
   color: #1C1C1C !important;
 }
+.text-black-0{
+  margin: 0 auto;
+}
+.text-black-0:hover{
+  color: var(--dark);
+}
+.text-black-1{
+  color: var(--dark);
+  font-size: 1.3rem;
+}
+.fa-angle-down{
+  margin-top: 5px;
+  float: right;
+ 
+}
+.text-black-1:hover,
+.text-black-1:focus {
+  color: var(--pink);
+}
+
 
 a.text-dark:hover,
 a.text-dark:focus {
@@ -10666,7 +10730,9 @@ a.text-dark:focus {
 .from-forgot{
   padding-left: 20px;
 }
-
+.padding-0{
+  padding: 0 !important;
+}
 [class^=flaticon-]:before,
 [class*=" flaticon-"]:before,
 [class^=flaticon-]:after,
