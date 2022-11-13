@@ -10489,7 +10489,7 @@ a.text-primary:focus {
 }
 
 .text-secondary {
-  color: var(--border-color) !important;
+  color: var(--dark) !important;
 }
 
 a.text-secondary:hover,
