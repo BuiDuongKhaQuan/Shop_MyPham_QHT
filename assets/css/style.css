@@ -19,7 +19,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #ff66c4;
+  --primary: #f766ff;
   --secondary: #EDF1FF;
   --success: #28a745;
   --info: #17a2b8;
@@ -3472,15 +3472,14 @@ input[type="button"].btn-block {
   display: none;
   float: left;
   min-width: 10rem;
-  padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #6F6F6F;
+  color: #000000;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #edf1ff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(0, 0, 0, 0.15);
 }
 
 .dropdown-menu-left {
@@ -3648,13 +3647,12 @@ input[type="button"].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: #000000;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
-  border: 0;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px;
   font-size: 1.2rem;
 }
 
@@ -6882,6 +6880,7 @@ button.bg-dark:focus {
 
 .border-secondary {
   border-color: var(--border-color) !important;
+  border-radius: 5px;
 }
 
 .border-success {
@@ -6997,12 +6996,16 @@ button.bg-dark:focus {
 .d-inline-flex {
   display: inline-flex !important;
 }
-
+@media (max-width: 992px){
+  .btn-login {
+      display: none !important;
+    }
+}
 @media (min-width: 576px) {
   .d-sm-none {
     display: none !important;
   }
-
+  
   .d-sm-inline {
     display: inline !important;
   }
@@ -7078,6 +7081,7 @@ button.bg-dark:focus {
   .d-lg-none {
     display: none !important;
   }
+ 
 
   .d-lg-inline {
     display: inline !important;
@@ -10814,7 +10818,7 @@ a.text-dark:focus {
   bottom: 0;
 }
 .vendor-item{
-  height: 120px;
+  height: 120px !important;
 }
 .offer .text-md-right img {
   left: 0;
