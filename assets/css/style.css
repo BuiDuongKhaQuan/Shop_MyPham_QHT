@@ -10738,6 +10738,9 @@ a.text-dark:focus {
 .padding-0{
   padding: 0 !important;
 }
+.form-group > form-control{
+  border: 1px solid var(--border-color);
+}
 [class^=flaticon-]:before,
 [class*=" flaticon-"]:before,
 [class^=flaticon-]:after,
