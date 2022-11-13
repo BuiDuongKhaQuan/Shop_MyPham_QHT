@@ -1,6 +1,5 @@
 body {
     background: #f7f7ff;
-    margin-top: 50px !important;
 }
 
 .card {
@@ -51,7 +50,4 @@ hr {
 }
 .mt-3>.btn {
    border-radius: 5px;
-}
-.text-muted{
-    margin-bottom: 16px !important;
 }
