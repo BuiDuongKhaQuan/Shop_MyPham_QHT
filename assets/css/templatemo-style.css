@@ -76,7 +76,7 @@ button:focus {
   max-height: none;
 }
 .tm-block-avatar {
-  height: auto;
+  height: 480px;
 }
 .tm-block-h-auto {
   min-height: 1px;
