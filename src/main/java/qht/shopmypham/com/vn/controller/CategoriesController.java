@@ -19,7 +19,7 @@ public class CategoriesController extends HttpServlet {
         Categories categories = ProductService.getNameCategoriesById(cid);
 
         request.setAttribute("categories", categories);
-        request.setAttribute("productListByC", productListByC);
+        request.setAttribute("listProduct", productListByC);
         request.getRequestDispatcher("categorie.jsp").forward(request, response);
 
     }

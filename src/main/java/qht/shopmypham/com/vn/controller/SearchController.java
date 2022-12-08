@@ -27,10 +27,10 @@ public class SearchController extends HttpServlet {
 
         request.setAttribute("top6Categories", top6Categories);
         request.setAttribute("listCategories", listCategories);
-        request.setAttribute("list15", listProductBySearch);
+        request.setAttribute("listProduct", listProductBySearch);
         request.setAttribute("txtSearch", txtSearch);
         request.setAttribute("txtSearch1", txtSearch);
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+        request.getRequestDispatcher("list-product.jsp").forward(request, response);
 
 
     }

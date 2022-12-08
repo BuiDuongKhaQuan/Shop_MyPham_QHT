@@ -1,7 +1,9 @@
 <%@ page import="qht.shopmypham.com.vn.model.Account" %>
 <%@ page import="qht.shopmypham.com.vn.model.Categories" %>
 <%@ page import="java.util.List" %>
-<%@ page import="qht.shopmypham.com.vn.service.ProductService" %><%--
+<%@ page import="qht.shopmypham.com.vn.service.ProductService" %>
+<%@ page import="qht.shopmypham.com.vn.model.ByCart" %>
+<%@ page import="qht.shopmypham.com.vn.service.CartService" %><%--
   Created by IntelliJ IDEA.
   User: Bùi Dương Khả Quân
   Date: 11/19/2022
@@ -82,15 +84,28 @@
                 </div>
             </form>
         </div>
+        <%
+            Account acc = (Account) request.getSession().getAttribute("a");
+
+        %>
         <div class="col-lg-3 col-6 text-right">
             <a href="" class="btn border">
                 <i class="fas fa-heart text-primary"></i>
                 <span class="badge">0</span>
             </a>
-            <a href="cart" class="btn border">
+            <% if (acc != null) {
+                List<ByCart> list = CartService.getAllByIda(String.valueOf(acc.getId()));
+            %>
+            <a href="cart-show" class="btn border">
+                <i class="fas fa-shopping-cart text-primary"></i>
+                <span class="badge"><%=list.size()%></span>
+            </a>
+            <%} else {%>
+            <a href="cart-show" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">0</span>
             </a>
+            <%}%>
         </div>
     </div>
 </div>
@@ -152,7 +167,7 @@
             >
         </div>
         <div class="navbar-nav ml-auto py-0 pading btn-login">
-            <% Account acc = (Account) request.getSession().getAttribute("a");
+            <%
                 if (acc == null) {
             %>
             <a href="login.jsp" class="nav-item nav-link text-black-1"
