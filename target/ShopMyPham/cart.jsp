@@ -7,6 +7,8 @@
 <%@ page import="java.util.TreeMap" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="qht.shopmypham.com.vn.service.CartService" %>
+<%@ page import="qht.shopmypham.com.vn.model.ByCart" %>
+<%@ page import="qht.shopmypham.com.vn.service.ProductService" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -115,31 +117,28 @@
 
                 </thead>
                 <tbody class="align-middle">
-                <% Cart cart = (Cart) session.getAttribute("cart");
-                    if (cart == null) {
-                        cart = new Cart();
-                        session.setAttribute("cart", cart);
-                    }
-                    TreeMap<Product, Integer> list = cart.getListProduct();
+                <%
+                    List<ByCart> list = (List<ByCart>) request.getAttribute("list");
                     NumberFormat nf = NumberFormat.getInstance();
                     nf.setMinimumFractionDigits(0);
-                    for (Map.Entry<Product, Integer> entry : list.entrySet()) {
-                        String a = String.valueOf(entry.getKey().getId());
-                        String b = String.valueOf(entry.getValue());
-                        String c = String.valueOf(cart.getCartId());
-                        System.out.println(a);
-                        System.out.println(b);
-                        System.out.println(c);
-
-//                        CartService.addProductToCart(a, b, c);
+                    double totalPrice = 0;
+                    for (ByCart l : list) {
+                        Product p = ProductService.getProductById(String.valueOf(l.getIdp()));
+                        totalPrice += (p.getPrice() * l.getQuantity());
                 %>
                 <tr>
-                    <td class="align-middle">
-                        <img src="<%=entry.getKey().getImg()%>" alt="" style="width: 50px"/>
-                        <%=entry.getKey().getName()%>
+                    <td class="align-middle item-table">
+                        <img src="<%=p.getImg()%>" alt="" style="width: 50px; float: left"/>
+                        <p style="float: left;
+                         margin-left: 10px;
+                         margin-top: 10px;">
+                            <%=p.getName()%>
+                        </p>
                     </td>
 
-                    <td class="align-middle"><%=nf.format(entry.getKey().getPrice())%>đ</td>
+                    <td class="align-middle item-table">
+                        <%=nf.format(p.getPrice())%>đ
+                    </td>
                     <td class="align-middle">
                         <div
                                 class="input-group quantity mx-auto"
@@ -147,7 +146,7 @@
                         >
                             <%--                            giảm số lượng sản phẩm--%>
                             <div class="input-group-btn">
-                                <a href="cartcontroller?command=subItem&product_id=<%=entry.getKey().getId()%>&cartId=<%=System.currentTimeMillis()%>"
+                                <a href="cartcontroller?command=subItem&product_id=<%=l.getIdp()%>"
                                    class="btn btn-sm btn-primary btn-minus" style="text-decoration: none">
                                     <i class="fa fa-minus"></i>
                                 </a>
@@ -155,23 +154,22 @@
 
                             <input
                                     type="text"
-                                    name="quantity"
-                                    class="form-control form-control-sm bg-secondary text-center"
-                                    value="<%=entry.getValue()%>"
+                                    class="form-control form-control-sm bg-secondary text-center  item-table"
+                                    value="<%=l.getQuantity()%>"
                             />
                             <%--                                tăng số lượng sản phẩm--%>
                             <div class="input-group-btn">
-                                <a href="cartcontroller?command=addItem&product_id=<%=entry.getKey().getId()%>&cartId=<%=System.currentTimeMillis()%>"
+                                <a href="cartcontroller?command=addItem&product_id=<%=l.getIdp()%>"
                                    class="btn btn-sm btn-primary btn-minus" style="text-decoration: none">
                                     <i class="fa fa-plus"></i>
                                 </a>
                             </div>
                         </div>
                     </td>
-                    <td class="align-middle"><%=nf.format(entry.getValue() * entry.getKey().getPrice())%>đ
+                    <td class="align-middle item-table"><%=nf.format(p.getPrice() * l.getQuantity())%>đ
                     </td>
                     <td class="align-middle">
-                        <a href="cartcontroller?command=removeItem&product_id=<%=entry.getKey().getId()%>&cartId=<%=System.currentTimeMillis()%>"
+                        <a href="cartcontroller?command=deleteItem&product_id=<%=l.getIdp()%>"
                            class="btn btn-sm btn-primary btn-minus" style="text-decoration: none">
                             <i class="fa fa-times"></i>
                         </a>
@@ -201,7 +199,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-3 pt-1">
                         <h6 class="font-weight-medium">Giá</h6>
-                        <h6 class="font-weight-medium"><%=nf.format(cart.total())%>đ</h6>
+                        <h6 class="font-weight-medium"><%=nf.format(totalPrice)%>đ</h6>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h6 class="font-weight-medium">Phí vẫn chuyển</h6>
@@ -211,7 +209,7 @@
                 <div class="card-footer border-secondary bg-transparent">
                     <div class="d-flex justify-content-between mt-2">
                         <h5 class="font-weight-bold">Tổng</h5>
-                        <h5 class="font-weight-bold"><%=nf.format(cart.total() + 25000)%>đ</h5>
+                        <h5 class="font-weight-bold"><%=nf.format(totalPrice + 25000)%>đ</h5>
                     </div>
 
                     <a href="OutController"
