@@ -29,14 +29,16 @@ public class EditProductController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("pid");
         String name = request.getParameter("name");
+        String img1 = request.getParameter("img1");
+        String img2 = request.getParameter("img2");
+        String img3 = request.getParameter("img3");
+        String img4 = request.getParameter("img4");
         String information = request.getParameter("information");
         String category = request.getParameter("category");
         String price = request.getParameter("price");
         String trademark = request.getParameter("trademark");
         String quantity = request.getParameter("quantity");
-
-        ProductService.editProductById(name, trademark, information, category, price, quantity, id);
-
+        ProductService.editProductById(name, img1, img2, img3, img4, trademark, information, category, price, quantity, id);
         response.sendRedirect("product-admin");
     }
 }

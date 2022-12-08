@@ -57,6 +57,36 @@
                             <div class="form-group mb-3">
                                 <label
                                         for="name"
+                                >Hình ảnh
+                                </label>
+                                <input
+                                        name="img1"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                                <input
+                                        name="img2"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                                <input
+                                        name="img3"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                                <input
+                                        name="img4"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label
+                                        for="name"
                                 >Xuất xứ
                                 </label>
                                 <input
@@ -129,22 +159,22 @@
                             </div>
 
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                        <div class="tm-product-img-dummy mx-auto">
-                            <i
-                                    class="fas fa-cloud-upload-alt tm-upload-icon"
-                                    onclick="document.getElementById('fileInput').click();"
-                            ></i>
-                        </div>
-                        <div class="custom-file mt-3 mb-3">
-                            <input id="fileInput" type="file" style="display:none;"/>
-                            <input
-                                    type="button"
-                                    class="btn btn-primary btn-block mx-auto"
-                                    value="HÌNH ẢNH SẢN PHẨM"
-                                    onclick="document.getElementById('fileInput').click();"
-                            />
-                        </div>
+<%--                    <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">--%>
+<%--                        <div class="tm-product-img-dummy mx-auto">--%>
+<%--                            <i--%>
+<%--                                    class="fas fa-cloud-upload-alt tm-upload-icon"--%>
+<%--                                    onclick="document.getElementById('fileInput').click();"--%>
+<%--                            ></i>--%>
+<%--                        </div>--%>
+<%--                        <div class="custom-file mt-3 mb-3">--%>
+<%--                            <input id="fileInput" type="file" style="display:none;"/>--%>
+<%--                            <input--%>
+<%--                                    type="button"--%>
+<%--                                    class="btn btn-primary btn-block mx-auto"--%>
+<%--                                    value="HÌNH ẢNH SẢN PHẨM"--%>
+<%--                                    onclick="document.getElementById('fileInput').click();"--%>
+<%--                            />--%>
+<%--                        </div>--%>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block text-uppercase">Thêm sản phẩm</button>

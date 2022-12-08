@@ -24,11 +24,11 @@ public class FilteProductController extends HttpServlet {
             int price2 = price1 + 100000;
             listProductByPrice = ProductService.getProductByPrice(price0, String.valueOf(price2));
         }
-        request.setAttribute("list15", listProductByPrice);
+        request.setAttribute("listProduct", listProductByPrice);
         request.setAttribute("listAllProduct", listAllProduct);
         request.setAttribute("top6Categories", top6Categories);
         request.setAttribute("listCategories", listCategories);
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+        request.getRequestDispatcher("list-product.jsp").forward(request, response);
     }
 
     @Override

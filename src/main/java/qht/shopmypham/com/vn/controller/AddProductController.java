@@ -26,12 +26,16 @@ public class AddProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
+        String img1 = request.getParameter("img1");
+        String img2 = request.getParameter("img2");
+        String img3 = request.getParameter("img3");
+        String img4 = request.getParameter("img4");
         String information = request.getParameter("information");
         String category = request.getParameter("category");
         String price = request.getParameter("price");
         String trademark = request.getParameter("trademark");
         String quantity = request.getParameter("quantity");
-        ProductService.addProduct(name, trademark, information, category, price, quantity);
+        ProductService.addProduct(name,img1,img2,img3,img4, trademark, information, category, price, quantity);
         response.sendRedirect("product-admin");
     }
 }

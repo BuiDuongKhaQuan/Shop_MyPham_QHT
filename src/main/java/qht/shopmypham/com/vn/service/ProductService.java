@@ -142,29 +142,37 @@ public class ProductService {
         );
     }
 
-    public static void addProduct(String name, String trademark, String information, String category, String price, String quantity) {
+    public static void addProduct(String name,String img1,String img2,String img3,String img4, String trademark, String information, String category, String price, String quantity) {
         JDBiConnector.me().withHandle(h ->
-                h.createUpdate("insert into product(name,img,trademark,status,price,information,idC,quantity) VALUES (?,null,?,null,?,?,?,?)")
+                h.createUpdate("insert into product(name,img1,img2,img3,img4,trademark,price,information,idC,quantity) VALUES (?,?,?,?,?,?,?,?,?,?)")
                         .bind(0, name)
-                        .bind(1, trademark)
-                        .bind(2, price)
-                        .bind(3, information)
-                        .bind(4, category)
-                        .bind(5, quantity)
+                        .bind(1, img1)
+                        .bind(2, img2)
+                        .bind(3, img3)
+                        .bind(4, img4)
+                        .bind(5, trademark)
+                        .bind(6, price)
+                        .bind(7, information)
+                        .bind(8, category)
+                        .bind(9, quantity)
                         .execute()
         );
     }
 
-    public static void editProductById(String name, String trademark, String information, String category, String price, String quantity, String id) {
+    public static void editProductById(String name,String img1,String img2,String img3,String img4, String trademark, String information, String category, String price, String quantity, String id) {
         JDBiConnector.me().withHandle(h ->
-                h.createUpdate("update product set name = ?,img = null,trademark =?,status = null,price =?,information=?,idC=?,quantity =? where id = ?")
+                h.createUpdate("update product set name = ?,img1 = ?,img2 = ?,img3 = ?,img4 = ?,trademark = ?,price = ?,information = ?,idC = ?,quantity = ? where id = ?")
                         .bind(0, name)
-                        .bind(1, trademark)
-                        .bind(2, price)
-                        .bind(3, information)
-                        .bind(4, category)
-                        .bind(5, quantity)
-                        .bind(6, id)
+                        .bind(1, img1)
+                        .bind(2, img2)
+                        .bind(3, img3)
+                        .bind(4, img4)
+                        .bind(5, trademark)
+                        .bind(6, price)
+                        .bind(7, information)
+                        .bind(8, category)
+                        .bind(9, quantity)
+                        .bind(10, id)
                         .execute()
         );
     }

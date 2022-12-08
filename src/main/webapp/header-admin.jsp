@@ -28,7 +28,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="#">
                         <i class="fas fa-tachometer-alt"></i>
-                        Bảng điều khiển
+                        Thông tin đơn hàng
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -43,12 +43,15 @@
                             aria-expanded="false"
                     >
                         <i class="far fa-file-alt"></i>
-                        <span> Báo cáo <i class="fas fa-angle-down"></i> </span>
+                        <span> Thông tin trag chủ <i class="fas fa-angle-down"></i> </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Báo cáo hàng ngày</a>
-                        <a class="dropdown-item" href="#">Báo cáo hàng tuần</a>
-                        <a class="dropdown-item" href="#">Báo cáo hàng năm</a>
+                        <a class="dropdown-item" href="#">Slider trang chủ</a>
+                        <a class="dropdown-item" href="#">Slider logo sản phẩm</a>
+                        <a class="dropdown-item" href="#">Lgo</a>
+                        <a class="dropdown-item" href="#">Slogan</a>
+                        <a class="dropdown-item" href="#">Thông tin liên lạc</a>
+
                     </div>
                 </li>
                 <li class="nav-item">
@@ -63,7 +66,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="list-account-admin">
                         <i class="far fa-user"></i>
-                        Tài khoản
+                        Danh sách tài khoản
                     </a>
                 </li>
                 <%

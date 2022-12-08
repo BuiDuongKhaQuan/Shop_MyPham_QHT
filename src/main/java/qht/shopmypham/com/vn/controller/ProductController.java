@@ -16,14 +16,12 @@ import java.util.List;
 public class ProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> list15 = ProductService.getTop15Product();
+        List<Product> listProduct = ProductService.getTop15Product();
         List<Categories> top6Categories = ProductService.getTop6Categories();
 
         request.setAttribute("top6Categories", top6Categories);
-        request.setAttribute("list15", list15);
-        request.getRequestDispatcher("product.jsp").forward(request, response);
-
-
+        request.setAttribute("listProduct", listProduct);
+        request.getRequestDispatcher("list-product.jsp").forward(request, response);
     }
 
     @Override

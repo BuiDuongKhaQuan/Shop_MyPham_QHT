@@ -19,12 +19,12 @@ public class SortProductController extends HttpServlet {
         try {
             switch (command) {
                 case "ascending":
-                    request.setAttribute("list15", listProductAscending);
+                    request.setAttribute("listProduct", listProductAscending);
 
                     break;
 
                 case "descending":
-                    request.setAttribute("list15", listProductDescending);
+                    request.setAttribute("listProduct", listProductDescending);
 
                     break;
 
@@ -33,7 +33,7 @@ public class SortProductController extends HttpServlet {
                     break;
 
             }
-            request.getRequestDispatcher("product.jsp").forward(request, response);
+            request.getRequestDispatcher("list-product.jsp").forward(request, response);
         } catch (Exception e) {
 
         }
