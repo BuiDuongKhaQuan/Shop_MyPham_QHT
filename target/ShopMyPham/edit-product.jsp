@@ -67,6 +67,40 @@
                             <div class="form-group mb-3">
                                 <label
                                         for="name"
+                                >Hình ảnh
+                                </label>
+                                <input
+                                        name="img1"
+                                        value = "<%=p.getImg1()%>"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                                <input
+                                        name="img2"
+                                        value = "<%=p.getImg2()%>"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                                <input
+                                        name="img3"
+                                        value = "<%=p.getImg3()%>"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                                <input
+                                        name="img4"
+                                        value = "<%=p.getImg4()%>"
+                                        type="text"
+                                        class="form-control validate"
+                                        required
+                                />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label
+                                        for="name"
                                 >Xuất xứ
                                 </label>
                                 <input
@@ -140,21 +174,21 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                         <div class="tm-product-img-edit mx-auto">
-                            <img src="<%=p.getImg()%>" alt="Product image" class="img-fluid d-block mx-auto">
+                            <img src="<%=p.getImg1()%>" alt="Product image" class="img-fluid d-block mx-auto">
                             <i
                                     class="fas fa-cloud-upload-alt tm-upload-icon"
                                     onclick="document.getElementById('fileInput').click();"
                             ></i>
                         </div>
-                        <div class="custom-file mt-3 mb-3">
-                            <input id="fileInput" type="file" style="display:none;"/>
-                            <input
-                                    type="button"
-                                    class="btn btn-primary btn-block mx-auto"
-                                    value="ĐỔI ẢNH"
-                                    onclick="document.getElementById('fileInput').click();"
-                            />
-                        </div>
+<%--                        <div class="custom-file mt-3 mb-3">--%>
+<%--                            <input id="fileInput" type="file" style="display:none;"/>--%>
+<%--                            <input--%>
+<%--                                    type="button"--%>
+<%--                                    class="btn btn-primary btn-block mx-auto"--%>
+<%--                                    value="ĐỔI ẢNH"--%>
+<%--                                    onclick="document.getElementById('fileInput').click();"--%>
+<%--                            />--%>
+<%--                        </div>--%>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block text-uppercase">Cập nhật ngay</button>

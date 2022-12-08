@@ -84,28 +84,28 @@
                     <div class="carousel-item active">
                         <img
                                 class="w-100 h-100"
-                                src="<%= p.getImg()%>"
+                                src="<%= p.getImg1()%>"
                                 alt="Image"
                         />
                     </div>
                     <div class="carousel-item">
                         <img
                                 class="w-100 h-100"
-                                src="<%= p.getImg()%>"
+                                src="<%= p.getImg2()%>"
                                 alt="Image"
                         />
                     </div>
                     <div class="carousel-item">
                         <img
                                 class="w-100 h-100"
-                                src="<%= p.getImg()%>"
+                                src="<%= p.getImg3()%>"
                                 alt="Image"
                         />
                     </div>
                     <div class="carousel-item">
                         <img
                                 class="w-100 h-100"
-                                src="<%= p.getImg()%>"
+                                src="<%= p.getImg4()%>"
                                 alt="Image"
                         />
                     </div>
@@ -323,12 +323,6 @@
                 <a
                         class="nav-item nav-link"
                         data-toggle="tab"
-                        href="#tab-pane-2"
-                >Thông tin</a
-                >
-                <a
-                        class="nav-item nav-link"
-                        data-toggle="tab"
                         href="#tab-pane-3"
                 >Đánh giá (0)</a
                 >
@@ -343,49 +337,7 @@
                         <!--  -->
                     </p>
                 </div>
-                <div class="tab-pane fade" id="tab-pane-2">
-                    <h4 class="mb-3">Thông tin sản phẩm</h4>
-                    <p>
-                        Hương đầu: quả lý chua đen, hương quýt, hương đào. Hương
-                        giữa: hoa nhài, hoa hồng, hoa huệ. Hương cuối: xạ hương, gỗ
-                        đàn hương, hương vani. Nhóm hương: Floral Powdery Tính cách:
-                        rực rỡ, tươi mới và sôi nổi
-                    </p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                                <li class="list-group-item px-0">
-                                    <!--  -->
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="tab-pane fade" id="tab-pane-3">
                     <div class="row">
                         <div class="col-md-6">

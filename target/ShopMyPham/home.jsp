@@ -169,59 +169,7 @@
         </h2>
     </div>
     <div class="row px-xl-5 pb-3">
-        <% Cart cart = (Cart) session.getAttribute("cart");
-            if (cart == null) {
-                cart = new Cart();
-                session.setAttribute("cart", cart);
-            }
-            NumberFormat nf = NumberFormat.getInstance();
-            nf.setMinimumFractionDigits(0);
-            List<Product> list = (List<Product>) request.getAttribute("list");
-            for (Product p : list) {
-
-        %>
-        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div
-                        class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
-                        style="height: 260px"
-                >
-                    <img
-                            class="img-fluid w-100"
-                            src="<%= p.getImg()%>"
-                            alt=""
-                    />
-                </div>
-                <div
-                        class="card-body border-left border-right text-center p-0 pt-4 pb-3"
-                >
-                    <h6 class="text-truncate mb-3">
-                        <%= p.getName()%>
-                    </h6>
-                    <div class="d-flex justify-content-center">
-                        <h6><%=nf.format(p.getPrice())%>đ
-                        </h6>
-                        <h6 class="text-muted ml-2">
-                            <del>123,000đ</del>
-                        </h6>
-                    </div>
-                </div>
-                <div
-                        class="card-footer d-flex justify-content-between bg-light border"
-                >
-                    <a href="detail?pid=<%= p.getId()%>" class="btn btn-sm text-dark p-0"
-                    ><i class="fas fa-eye text-primary mr-1"></i
-                    ></a>
-
-                    <a href="cartcontroller?command=insertItem&product_id=<%=p.getId()%>&cartId=<%=System.currentTimeMillis()%>"
-                       class="btn btn-sm text-dark p-0">
-                        <i class="fas fa-shopping-cart text-primary mr-1"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <%}%>
-
+        <jsp:include page="product.jsp"></jsp:include>
     </div>
 </div>
 <!-- Products End -->
@@ -263,53 +211,7 @@
         </h2>
     </div>
     <div class="row px-xl-5 pb-3">
-
-        <%
-            List<Product> list1 = (List<Product>) request.getAttribute("list");
-            for (Product p : list1) {
-
-        %>
-        <div class="col-lg-14 col-md-13 col-sm-13 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div
-                        class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
-                >
-                    <img
-                            class="img-fluid w-100"
-                            src="<%= p.getImg()%>"
-                            alt=""
-                    />
-                </div>
-                <div
-                        class="card-body border-left border-right text-center p-0 pt-4 pb-3"
-                >
-                    <h6 class="text-truncate mb-3">
-                        <%= p.getName()%>
-                    </h6>
-                    <div class="d-flex justify-content-center">
-                        <h6><%=nf.format(p.getPrice())%>đ
-                        </h6>
-                        <h6 class="text-muted ml-2">
-                            <del>123,000đ</del>
-                        </h6>
-                    </div>
-                </div>
-                <div
-                        class="card-footer d-flex justify-content-between bg-light border"
-                >
-                    <a href="detail?pid=<%= p.getId()%>" class="btn btn-sm text-dark p-0"
-                    ><i class="fas fa-eye text-primary mr-1"></i
-                    ></a>
-
-                    <a href="cartcontroller?command=insertItem&product_id=<%=p.getId()%>&cartId=<%=System.currentTimeMillis()%>"
-                       class="btn btn-sm text-dark p-0">
-                        <i class="fas fa-shopping-cart text-primary mr-1"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <%}%>
-
+        <jsp:include page="product.jsp"></jsp:include>
 
     </div>
 </div>
