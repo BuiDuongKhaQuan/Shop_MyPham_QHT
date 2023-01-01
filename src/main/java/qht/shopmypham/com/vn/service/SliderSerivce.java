@@ -1,8 +1,9 @@
 package qht.shopmypham.com.vn.service;
 
 import qht.shopmypham.com.vn.db.JDBiConnector;
+import qht.shopmypham.com.vn.model.Product;
 import qht.shopmypham.com.vn.model.Slider;
-import qht.shopmypham.com.vn.model.SliderLogo;
+import qht.shopmypham.com.vn.model.Trademark;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,13 +17,69 @@ public class SliderSerivce {
                         .collect(Collectors.toList())
         );
     }
-
-    public static List<SliderLogo> getAllSliderLogo() {
+    public static List<Slider> getSliderByStatus() {
         return JDBiConnector.me().withHandle(h ->
-                h.createQuery("SELECT * FROM slider_logo_pro")
-                        .mapToBean(SliderLogo.class)
+                h.createQuery("SELECT * FROM slider where status = 1")
+                        .mapToBean(Slider.class)
                         .stream()
                         .collect(Collectors.toList())
         );
+    }
+    public static List<Trademark> getAllTrademark() {
+        return JDBiConnector.me().withHandle(h ->
+                h.createQuery("SELECT * FROM trademark")
+                        .mapToBean(Trademark.class)
+                        .stream()
+                        .collect(Collectors.toList())
+        );
+    }
+
+
+    public static void editSliderById(String idSl, String img, String text) {
+        JDBiConnector.me().withHandle(h ->
+                h.createUpdate("update slider set img = ?, text=? where idSl = ?")
+                        .bind(0, img)
+                        .bind(1, text)
+                        .bind(2, idSl)
+                        .execute()
+        );
+    }
+    public static void editSliderStatusById(String idSl, String status) {
+        JDBiConnector.me().withHandle(h ->
+                h.createUpdate("update slider set status = ? where idSl = ?")
+                        .bind(0, status)
+                        .bind(1, idSl)
+                        .execute()
+        );
+    }
+    public static void addSlider(String img, String text) {
+        JDBiConnector.me().withHandle(h ->
+                h.createUpdate("insert into slider(img,text,status) values (?,?,?)")
+                        .bind(0, img)
+                        .bind(1, text)
+                        .bind(2,1)
+                        .execute()
+        );
+    }
+
+    public static void deleteSliderById(String idSl) {
+        JDBiConnector.me().withHandle(h ->
+                h.createUpdate("delete from slider where idSl = ?")
+                        .bind(0, idSl)
+                        .execute()
+        );
+    }
+
+    public static Slider getSliderById(String idSl) {
+        return JDBiConnector.me().withHandle(h ->
+                h.createQuery("SELECT * FROM slider where idSl = ?")
+                        .bind(0, idSl)
+                        .mapToBean(Slider.class)
+                        .stream()
+                        .collect(Collectors.toList()).get(0)
+        );
+    }
+
+    public static void main(String[] args) {
     }
 }

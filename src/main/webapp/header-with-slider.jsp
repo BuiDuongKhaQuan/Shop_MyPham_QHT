@@ -18,10 +18,12 @@
         data-ride="carousel"
 >
     <div class="carousel-inner">
+        <% List<Slider> sliderList = SliderSerivce.getSliderByStatus();
+        %>
         <div class="carousel-item active">
             <img
                     class="img-fluid"
-                    src="https://myphamhera.com/wp-content/uploads/2022/12/banner-khuyen-mai-noel-thang-12-2022-myphamheracom.jpg"
+                    src="<%=sliderList.get(0).getImg()%>"
                     alt="Image"
             />
             <!-- <div
@@ -40,13 +42,13 @@
             </div>
           </div> -->
         </div>
-        <% List<Slider> sliderList = SliderSerivce.getAllSlider();;
-            for (Slider slider : sliderList) {
+        <%
+            for (int i = 1;i<sliderList.size();i++) {
         %>
         <div class="carousel-item">
             <img
                     class="img-fluid"
-                    src="<%=slider.getImg()%>"
+                    src="<%=sliderList.get(i).getImg()%>"
                     alt="Image"
             />
             <!-- <div

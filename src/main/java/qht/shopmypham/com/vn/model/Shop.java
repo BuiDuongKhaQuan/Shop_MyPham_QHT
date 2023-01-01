@@ -3,65 +3,93 @@ package qht.shopmypham.com.vn.model;
 import java.io.Serializable;
 
 public class Shop implements Serializable {
-    int idlg;
-    String img;
-    String slogan;
-    String address_1;
-    String address_2;
-    String phone;
-    String email;
+    int idS;
+    String shopLogo, aboutShop, designerBy, textInHelp, shopName, address, phone, email;
 
     public Shop() {
     }
 
-    public Shop(int idlg, String img, String slogan, String address_1, String address_2, String phone, String email) {
-        this.idlg = idlg;
-        this.img = img;
-        this.slogan = slogan;
-        this.address_1 = address_1;
-        this.address_2 = address_2;
+    public Shop(int idS, String shopLogo, String aboutShop, String designerBy, String textInHelp, String shopName, String address, String phone, String email) {
+        this.idS = idS;
+        this.shopLogo = shopLogo;
+        this.aboutShop = aboutShop;
+        this.designerBy = designerBy;
+        this.textInHelp = textInHelp;
+        this.shopName = shopName;
+        this.address = address;
         this.phone = phone;
         this.email = email;
     }
 
-    public int getIdlg() {
-        return idlg;
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "idS=" + idS +
+                ", shopLogo='" + shopLogo + '\'' +
+                ", aboutShop='" + aboutShop + '\'' +
+                ", designerBy='" + designerBy + '\'' +
+                ", textInHelp='" + textInHelp + '\'' +
+                ", shopName='" + shopName + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
-    public void setIdlg(int idlg) {
-        this.idlg = idlg;
+    public int getIdS() {
+        return idS;
     }
 
-    public String getImg() {
-        return img;
+    public void setIdS(int idS) {
+        this.idS = idS;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public String getShopLogo() {
+        return shopLogo;
     }
 
-    public String getSlogan() {
-        return slogan;
+    public void setShopLogo(String shopLogo) {
+        this.shopLogo = shopLogo;
     }
 
-    public void setSlogan(String slogan) {
-        this.slogan = slogan;
+    public String getAboutShop() {
+        return aboutShop;
     }
 
-    public String getAddress_1() {
-        return address_1;
+    public void setAboutShop(String aboutShop) {
+        this.aboutShop = aboutShop;
     }
 
-    public void setAddress_1(String address_1) {
-        this.address_1 = address_1;
+    public String getDesignerBy() {
+        return designerBy;
     }
 
-    public String getAddress_2() {
-        return address_2;
+    public void setDesignerBy(String designerBy) {
+        this.designerBy = designerBy;
     }
 
-    public void setAddress_2(String address_2) {
-        this.address_2 = address_2;
+    public String getTextInHelp() {
+        return textInHelp;
+    }
+
+    public void setTextInHelp(String textInHelp) {
+        this.textInHelp = textInHelp;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhone() {

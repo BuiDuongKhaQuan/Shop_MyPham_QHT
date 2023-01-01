@@ -1,14 +1,9 @@
-<%@ page import="qht.shopmypham.com.vn.model.Cart" %>
-<%@ page import="qht.shopmypham.com.vn.model.Cart" %>
-<%@ page import="java.util.HashMap" %>
 <%@ page import="qht.shopmypham.com.vn.model.Product" %>
-<%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.TreeMap" %>
 <%@ page import="java.text.NumberFormat" %>
-<%@ page import="qht.shopmypham.com.vn.service.CartService" %>
-<%@ page import="qht.shopmypham.com.vn.model.ByCart" %>
 <%@ page import="qht.shopmypham.com.vn.service.ProductService" %>
+<%@ page import="qht.shopmypham.com.vn.model.ListProductByCart" %>
+<%@ page import="qht.shopmypham.com.vn.model.Account" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -100,7 +95,7 @@
     </div>
 </div>
 <!-- Page Header End -->
-
+<% Account acc = (Account) request.getSession().getAttribute("a");%>
 <!-- Cart Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
@@ -118,17 +113,18 @@
                 </thead>
                 <tbody class="align-middle">
                 <%
-                    List<ByCart> list = (List<ByCart>) request.getAttribute("list");
+                    List<ListProductByCart> list = (List<ListProductByCart>) request.getAttribute("list");
                     NumberFormat nf = NumberFormat.getInstance();
                     nf.setMinimumFractionDigits(0);
                     double totalPrice = 0;
-                    for (ByCart l : list) {
-                        Product p = ProductService.getProductById(String.valueOf(l.getIdp()));
+                    for (ListProductByCart l : list) {
+                        Product p = ProductService.getProductById(String.valueOf(l.getIdP()));
                         totalPrice += (p.getPrice() * l.getQuantity());
+                        System.out.println(totalPrice);
                 %>
                 <tr>
                     <td class="align-middle item-table">
-                        <img src="<%=p.getImg()%>" alt="" style="width: 50px; float: left"/>
+                        <img src="<%=p.getImg1()%>" alt="" style="width: 50px; float: left"/>
                         <p style="float: left;
                          margin-left: 10px;
                          margin-top: 10px;">
@@ -146,7 +142,7 @@
                         >
                             <%--                            giảm số lượng sản phẩm--%>
                             <div class="input-group-btn">
-                                <a href="cartcontroller?command=subItem&product_id=<%=l.getIdp()%>"
+                                <a href="cartcontroller?command=subItem&product_id=<%=l.getIdP()%>"
                                    class="btn btn-sm btn-primary btn-minus" style="text-decoration: none">
                                     <i class="fa fa-minus"></i>
                                 </a>
@@ -159,7 +155,7 @@
                             />
                             <%--                                tăng số lượng sản phẩm--%>
                             <div class="input-group-btn">
-                                <a href="cartcontroller?command=addItem&product_id=<%=l.getIdp()%>"
+                                <a href="cartcontroller?command=addItem&product_id=<%=l.getIdP()%>"
                                    class="btn btn-sm btn-primary btn-minus" style="text-decoration: none">
                                     <i class="fa fa-plus"></i>
                                 </a>
@@ -169,7 +165,7 @@
                     <td class="align-middle item-table"><%=nf.format(p.getPrice() * l.getQuantity())%>đ
                     </td>
                     <td class="align-middle">
-                        <a href="cartcontroller?command=deleteItem&product_id=<%=l.getIdp()%>"
+                        <a href="cartcontroller?command=deleteItem&product_id=<%=l.getIdP()%>"
                            class="btn btn-sm btn-primary btn-minus" style="text-decoration: none">
                             <i class="fa fa-times"></i>
                         </a>
@@ -212,7 +208,7 @@
                         <h5 class="font-weight-bold"><%=nf.format(totalPrice + 25000)%>đ</h5>
                     </div>
 
-                    <a href="OutController"
+                    <a href="checkout"
                        class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3"
                     >
                         Đặt hàng

@@ -1,3 +1,6 @@
+<%@ page import="qht.shopmypham.com.vn.model.Shop" %>
+<%@ page import="java.util.List" %>
+<%@ page import="qht.shopmypham.com.vn.model.BranchShop" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -101,12 +104,13 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form">
                 <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form action="help" method="post">
                     <div class="control-group">
                   
                   <textarea
                           class="form-control from-border"
                           rows="6"
+                          name="question"
                           id="message"
                           placeholder="Câu hỏi"
                           required="required"
@@ -125,7 +129,8 @@
                     </div>
                 </form>
             </div>
-
+            <% Shop shop = (Shop) request.getAttribute("shop");
+                List<BranchShop> branchShopList = (List<BranchShop>) request.getAttribute("branchShopList");%>
             <div>
                 <h5 class="font-weight-semi-bold mb-3 magin-top">Quên mật khẩu</h5>
                 <p>
@@ -145,37 +150,28 @@
             </div>
         </div>
         <div class="col-lg-5 mb-5">
-            <h5 class="font-weight-semi-bold mb-3">Giảm giá !!!</h5>
+            <h5 class="font-weight-semi-bold mb-3">Trợ giúp</h5>
             <p>
-                Săn sale 11.11 tại khung giờ 0H-9H-12H-15H-18H-21H. Freeship 0Đ. Voucher hoàn xu xtra 1.5 triệu. Xem QHT
-                lấy mã freeship 99K.
+                <%=shop.getTextInHelp()%>
             </p>
+            <% int a = 0;
+                for (BranchShop branchShop : branchShopList) {
+                    a++; %>
             <div class="d-flex flex-column mb-3">
-                <h5 class="font-weight-semi-bold mb-3">Cửa hàng 1</h5>
+                <h5 class="font-weight-semi-bold mb-3">Cửa hàng <%=a%>
+                </h5>
                 <p class="mb-2">
-                    <i class="fa fa-map-marker-alt text-primary mr-3"></i>789 Linh
-                    Trung, Thủ Đức, TP HCM
+                    <i class="fa fa-map-marker-alt text-primary mr-3"></i>
+                    <%=branchShop.getBranchAddress()%>
                 </p>
                 <p class="mb-2">
-                    <i class="fa fa-envelope text-primary mr-3"></i>qht@gmail.com
+                    <i class="fa fa-envelope text-primary mr-3"></i><%=branchShop.getBranchEmail()%>
                 </p>
                 <p class="mb-2">
-                    <i class="fa fa-phone-alt text-primary mr-3"></i>+84 328 316787
+                    <i class="fa fa-phone-alt text-primary mr-3"></i><%=branchShop.getBranchPhone()%>
                 </p>
             </div>
-            <div class="d-flex flex-column">
-                <h5 class="font-weight-semi-bold mb-3">Cửa hàng 2</h5>
-                <p class="mb-2">
-                    <i class="fa fa-map-marker-alt text-primary mr-3"></i>789 Linh
-                    Trung, Thủ Đức, TP HCM
-                </p>
-                <p class="mb-2">
-                    <i class="fa fa-envelope text-primary mr-3"></i>qht@gmail.com
-                </p>
-                <p class="mb-0">
-                    <i class="fa fa-phone-alt text-primary mr-3"></i>+84 328 316787
-                </p>
-            </div>
+            <%}%>
         </div>
     </div>
 </div>

@@ -3,6 +3,10 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.TreeMap" %>
+<%@ page import="java.util.List" %>
+<%@ page import="qht.shopmypham.com.vn.model.Payment" %>
+<%@ page import="qht.shopmypham.com.vn.model.ListProductByCart" %>
+<%@ page import="qht.shopmypham.com.vn.service.ProductService" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -78,12 +82,7 @@
 
 <body>
 <%
-    Cart cart = (Cart) session.getAttribute("cart");
-    if (cart == null) {
-        cart = new Cart();
-        session.setAttribute("cart", cart);
-    }
-    TreeMap<Product, Integer> list = cart.getListProduct();
+
     NumberFormat nf = NumberFormat.getInstance();
     nf.setMinimumFractionDigits(0);
 %>
@@ -108,137 +107,121 @@
 
 <!-- Checkout Start -->
 <div class="container-fluid pt-5">
-    <div class="row px-xl-5">
-        <div class="col-lg-8">
-            <div class="mb-4">
-                <h4 class="font-weight-semi-bold mb-4">Thông tin thanh toán</h4>
+    <form
+            method="post"
+            action="checkout"
+    >
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <h4 class="font-weight-semi-bold mb-4" style="margin-left: 15px">Thông tin thanh toán</h4>
 
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                        <label>Họ</label>
-                        <input name="first-name"
-                               class="form-control from-border"
-                               type="text"
-                               placeholder="John"
-                        />
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label>Tên</label>
-                        <input name="last-name"
-                               class="form-control from-border"
-                               type="text"
-                               placeholder="Doe"
-                        />
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label>E-mail</label>
-                        <input name="email"
-                               class="form-control from-border"
-                               type="text"
-                               placeholder="example@email.com"
-                        />
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label>Số điện thoại</label>
-                        <input name="phone"
-                               class="form-control from-border"
-                               type="text"
-                               placeholder="+84 3456 789"
-                        />
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label>Quốc gia</label>
-                        <select name="country" class="custom-select">
-                            <option selected>Việt Nam</option>
-                            <option>United States</option>
-                            <option>Afghanistan</option>
-                            <option>Albania</option>
-                            <option>Algeria</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label>Địa chỉ</label>
-                        <input name="address"
-                               class="form-control from-border"
-                               type="text"
-                               placeholder="123 Street"
-                        />
-                    </div>
-                    <%--                    <div class="col-md-12 form-group">--%>
-                    <%--                        <div class="custom-control custom-checkbox">--%>
-                    <%--                            <input--%>
-                    <%--                                    type="checkbox"--%>
-                    <%--                                    class="custom-control-input"--%>
-                    <%--                                    id="newaccount"--%>
-                    <%--                            />--%>
-                    <%--                            <label class="custom-control-label" for="newaccount"--%>
-                    <%--                            >Tạo một tài khoản</label--%>
-                    <%--                            >--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-                    <%--                    <div class="col-md-12 form-group">--%>
-                    <%--                        <div class="custom-control custom-checkbox">--%>
-                    <%--                            <input--%>
-                    <%--                                    type="checkbox"--%>
-                    <%--                                    class="custom-control-input"--%>
-                    <%--                                    id="shipto"--%>
-                    <%--                            />--%>
-                    <%--                            <label--%>
-                    <%--                                    class="custom-control-label"--%>
-                    <%--                                    for="shipto"--%>
-                    <%--                                    data-toggle="collapse"--%>
-                    <%--                                    data-target="#shipping-address"--%>
-                    <%--                            >Gửi đến địa chỉ khác</label--%>
-                    <%--                            >--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
-                </div>
+                <div class="col-lg-12 mb-5">
+                    <div class="contact-form">
+                        <div id="success"></div>
 
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card border-secondary mb-5">
-                <div class="card-header bg-secondary border-0">
-                    <h4 class="font-weight-semi-bold m-0">Tổng đơn đặt hàng</h4>
-                </div>
-                <div class="card-body">
-                    <h5 class="font-weight-medium mb-3">Các sản phẩm</h5>
-                    <% for (Map.Entry<Product, Integer> entry : list.entrySet()) { %>
-                    <div class="d-flex justify-content-between">
-                        <p>
-                            <%=entry.getKey().getName()%>
-                        </p>
-                        <p><%=nf.format(entry.getKey().getPrice())%>đ
-                        </p>
-                    </div>
-                    <%}%>
-                    <hr class="mt-0"/>
-                    <div class="d-flex justify-content-between mb-3 pt-1">
-                        <h6 class="font-weight-medium">Tổng giá</h6>
-                        <h6 class="font-weight-medium"><%=nf.format(cart.total())%>đ</h6>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <h6 class="font-weight-medium">Phí vận chuyển</h6>
-                        <h6 class="font-weight-medium">25,000đ</h6>
-                    </div>
-                </div>
-                <div class="card-footer border-secondary bg-transparent">
-                    <div class="d-flex justify-content-between mt-2">
-                        <h5 class="font-weight-bold">Tổng</h5>
-                        <h5 class="font-weight-bold"><%=nf.format(cart.total() + 25000)%>>đ</h5>
+                        <div class="control-group">
+                            <input
+                                    type="text"
+                                    class="form-control from-border"
+                                    name="name"
+                                    id="name"
+                                    placeholder="Họ và tên"
+                                    required="required"
+                                    data-validation-required-message="Please enter your name"
+                            />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input
+                                    type="text"
+                                    class="form-control from-border"
+                                    id="email"
+                                    name="phone"
+                                    placeholder="Số điện thoại"
+                                    required="required"
+                                    data-validation-required-message="Please enter your email"
+                            />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input
+                                    type="text"
+                                    class="form-control from-border"
+                                    id="subject"
+                                    name="address"
+                                    placeholder="Địa chỉ"
+                                    required="required"
+                                    data-validation-required-message="Please enter a subject"
+                            />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                    <textarea
+                            class="form-control from-border"
+                            rows="6"
+                            id="message"
+                            name="note"
+                            placeholder="Lưu ý của bạn về đơn hàng"
+                            required="required"
+                            data-validation-required-message="Please enter your message"
+                    ></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="card border-secondary mb-5">
-                <form action="checkout" method="post">
+            <div class="col-lg-4">
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Tổng đơn đặt hàng</h4>
+                    </div>
+                    <div class="card-body">
+                        <%--                        <h5 class="font-weight-medium mb-3">Các sản phẩm</h5>--%>
+                        <%
+                            List<ListProductByCart> list = (List<ListProductByCart>) request.getAttribute("list");
+                            double totalPrice = 0;
+                            for (ListProductByCart l : list) {
+                                Product p = ProductService.getProductById(String.valueOf(l.getIdP()));
+                                totalPrice += (p.getPrice() * l.getQuantity());
+                        %>
+                        <div class="d-flex justify-content-between"
+                             style="border-bottom: 1px solid var(--border-color);margin-bottom: 10px;">
+                            <p>
+                                <%=p.getName()%>(SL:<%=l.getQuantity()%>)
+                            </p>
+                            <p><%=nf.format(p.getPrice())%>đ
+                            </p>
+                        </div>
+                        <%}%>
+                        <hr class="mt-0" style="border: none"/>
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Tổng giá</h6>
+                            <h6 class="font-weight-medium"><%=nf.format(totalPrice)%>đ</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Phí vận chuyển</h6>
+                            <h6 class="font-weight-medium">25,000đ</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Tổng</h5>
+                            <h5 class="font-weight-bold"><%=nf.format(totalPrice + 25000)%>đ</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-secondary mb-5">
                     <div class="card-header bg-secondary border-0">
                         <h4 class="font-weight-semi-bold m-0">Hình thức thanh toán</h4>
                     </div>
                     <div class="card-body">
-                        <select name="paypal" class="custom-select">
-                            <option value="" selected>Ví điện tử</option>
-                            <option value="">Thẻ tín dụng</option>
-                            <option value="">Thanh toán trực tiếp khi nhận hàng</option>
+                        <% List<Payment> paymentList = (List<Payment>) request.getAttribute("paymentList");%>
+                        <select name="payment" class="custom-select">
+                            <% for (Payment payment : paymentList) {%>
+                            <option value="<%=payment.getIdPm()%>"><%=payment.getNamePayment()%>
+                            </option>
+                            <%}%>
                         </select>
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
@@ -248,11 +231,10 @@
                             Đặt hàng
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-
+    </form>
 </div>
 <!-- Checkout End -->
 <!-- Footer Start -->

@@ -2,46 +2,48 @@ package qht.shopmypham.com.vn.model;
 
 import java.io.Serializable;
 
-public class Product implements Serializable, Comparable<Product> {
-    private int id;
-    private String name;
-    private String img1;
-    private String img2;
-    private String img3;
-    private String img4;
-    private String trademark;
-
-    private double price;
-    private String information;
-    private int idC;
-    private int quantity;
-    private double discount;
+public class Product implements Serializable {
+    int idP;
+    String name;
+    int price;
+    String trademark;
+    int quantity;
+    String information;
+    String img1;
+    String img2;
+    String img3;
+    String img4;
+    int isNew;
+    int isPro;
+    int idC;
+    int idB;
 
     public Product() {
     }
 
-    public Product(int id, String name, String img1, String img2, String img3, String img4, String trademark, double price, String information, int idC, int quantity, double discount) {
-        this.id = id;
+    public Product(int idP, String name, int price, String trademark, int quantity, String information, String img1, String img2, String img3, String img4, int isNew, int isPro, int idC, int idB) {
+        this.idP = idP;
         this.name = name;
+        this.price = price;
+        this.trademark = trademark;
+        this.quantity = quantity;
+        this.information = information;
         this.img1 = img1;
         this.img2 = img2;
         this.img3 = img3;
         this.img4 = img4;
-        this.trademark = trademark;
-
-        this.price = price;
-        this.information = information;
+        this.isNew = isNew;
+        this.isPro = isPro;
         this.idC = idC;
-        this.quantity = quantity;
-        this.discount = discount;
+        this.idB = idB;
     }
 
-    public int getId() {
-        return id;
+    public int getIdP() {
+        return idP;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdP(int idP) {
+        this.idP = idP;
     }
 
     public String getName() {
@@ -50,6 +52,38 @@ public class Product implements Serializable, Comparable<Product> {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getTrademark() {
+        return trademark;
+    }
+
+    public void setTrademark(String trademark) {
+        this.trademark = trademark;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
     }
 
     public String getImg1() {
@@ -84,29 +118,20 @@ public class Product implements Serializable, Comparable<Product> {
         this.img4 = img4;
     }
 
-    public String getTrademark() {
-        return trademark;
+    public int getIsNew() {
+        return isNew;
     }
 
-    public void setTrademark(String trademark) {
-        this.trademark = trademark;
+    public void setIsNew(int isNew) {
+        this.isNew = isNew;
     }
 
-
-    public double getPrice() {
-        return price;
+    public int getIsPro() {
+        return isPro;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getInformation() {
-        return information;
-    }
-
-    public void setInformation(String information) {
-        this.information = information;
+    public void setIsPro(int isPro) {
+        this.isPro = isPro;
     }
 
     public int getIdC() {
@@ -117,24 +142,11 @@ public class Product implements Serializable, Comparable<Product> {
         this.idC = idC;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getIdB() {
+        return idB;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(double discount) {
-        this.discount = discount;
-    }
-
-    @Override
-    public int compareTo(Product p) {
-        return this.id - p.id;
+    public void setIdB(int idB) {
+        this.idB = idB;
     }
 }
