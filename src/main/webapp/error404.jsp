@@ -18,7 +18,7 @@
         <div class="navbar-links">
           <ul>
             <li>
-              <a href="home.jsp" target="_blank">Home</a>
+              <a href="home" target="_blank">Home</a>
             </li>
           </ul>
         </div>
@@ -29,7 +29,7 @@
           src="http://salehriaz.com/404Page/img/404.svg"
           width="300px"
         />
-        <a href="home.jsp" class="btn-go-home" target="_blank"
+        <a href="home" class="btn-go-home" target="_blank"
           >GO BACK HOME</a
         >
       </div>

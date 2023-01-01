@@ -1,6 +1,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="qht.shopmypham.com.vn.model.Product" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: Bùi Dương Khả Quân
   Date: 12/6/2022
@@ -14,24 +15,35 @@
     List<Product> listProduct = (List<Product>) request.getAttribute("listProduct");
     for (Product p : listProduct) {
 %>
-<div class="col-lg-14 col-md-13 col-sm-13 pb-1">
-    <div class="card product-item border-0 mb-4">
+<div class="col-lg-14 col-md-13 col-sm-13 pb-1 listproduct">
+    <div class="card product-item  mb-4 border-product border-img">
+        <%if (p.getIsNew() == 1) {%>
+        <div class="is-new">
+            <h5 class="new-item">New</h5>
+        </div>
+        <%}%>
         <div
-                class="card-header product-img position-relative overflow-hidden bg-transparent border p-0"
+                class="card-header product-img position-relative overflow-hidden bg-transparent p-0 border-img"
         >
-            <img
-                    class="img-fluid w-100"
-                    src="<%= p.getImg1()%>"
-                    alt=""
-                    style="height: 310px;"
-            />
+            <a href="detail?pid=<%= p.getIdP()%>">
+                <img
+                        class="img-fluid w-100 "
+                        src="<%=p.getImg1()%>"
+                        alt=""
+                        style="height: 300px; "
+                />
+            </a>
+
         </div>
         <div
-                class="card-body border-left border-right text-center p-0 pt-4 pb-3"
+                class="card-body text-center p-0 pt-4 pb-3 border-product"
+                style=" background:#ffaee0;"
         >
-            <h6 class="text-truncate mb-3">
-                <%= p.getName()%>
-            </h6>
+            <a href="detail?pid=<%= p.getIdP()%>" style="text-decoration: none">
+                <h6 class="text-truncate mb-3">
+                    <%= p.getName()%>
+                </h6>
+            </a>
             <div class="d-flex justify-content-center">
                 <h6><%=nf.format(p.getPrice())%>đ
                 </h6>
@@ -39,17 +51,6 @@
                     <del>123,000đ</del>
                 </h6>
             </div>
-        </div>
-        <div
-                class="card-footer d-flex justify-content-between bg-light border"
-        >
-            <a href="detail?pid=<%= p.getId()%>" class="btn btn-sm text-dark p-0"
-            ><i class="fas fa-eye text-primary mr-1"></i
-            ></a>
-            <a href="cartcontroller?command=insertItem&product_id=<%=p.getId()%>"
-               class="btn btn-sm text-dark p-0">
-                <i class="fas fa-shopping-cart text-primary mr-1"></i>
-            </a>
         </div>
     </div>
 </div>

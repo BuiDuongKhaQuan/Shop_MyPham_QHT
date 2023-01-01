@@ -46,7 +46,7 @@
 
 <% HttpSession session1 = request.getSession();
     Account acc = (Account) session1.getAttribute("a");
-    Account acc1 = AccountService.getAccountById(String.valueOf(acc.getId()));
+    Account acc1 = AccountService.getAccountById(String.valueOf(acc.getIdA()));
 %>
 
 <!-- Page Header Start -->
@@ -85,12 +85,6 @@
                             <div class="mt-3">
                                 <h4><%= acc1.getUser()%>
                                 </h4>
-                                <p
-                                        class="text-secondary mb-1"
-                                        style="color: black !important"
-                                >
-                                    Quản trị viên
-                                </p>
                                 <p class="text-muted font-size-sm">
                                     <%= acc1.getAddress()%>
                                 </p>

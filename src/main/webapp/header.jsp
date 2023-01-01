@@ -1,8 +1,8 @@
 <%@ page import="qht.shopmypham.com.vn.model.Account" %>
 <%@ page import="qht.shopmypham.com.vn.model.Categories" %>
 <%@ page import="java.util.List" %>
-<%@ page import="qht.shopmypham.com.vn.service.ProductService" %>
-<%@ page import="qht.shopmypham.com.vn.model.ByCart" %>
+<%@ page import="qht.shopmypham.com.vn.model.ListProductByCart" %>
+<%@ page import="qht.shopmypham.com.vn.service.CategoryService" %>
 <%@ page import="qht.shopmypham.com.vn.service.CartService" %><%--
   Created by IntelliJ IDEA.
   User: Bùi Dương Khả Quân
@@ -16,11 +16,11 @@
     <div class="row bg-secondary py-2 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
             <div class="d-inline-flex align-items-center">
-                <a class="text-dark" href="">FAQs</a>
+                <a class="text-dark" href="faqs">FAQs</a>
                 <span class="text-muted px-2">|</span>
                 <a class="text-dark" href="help">Help</a>
                 <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Support</a>
+                <a class="text-dark" href="contact">Support</a>
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
@@ -55,13 +55,13 @@
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
-            <form action="search" method="post">
+            <form action="search">
                 <% String txtInput = (String) request.getAttribute("txtSearch"); %>
                 <div class="input-group">
                     <%if (txtInput != null) {%>
                     <input
                             type="text"
-                            name="txtSearch"
+                            name="nameP"
                             class="form-control"
                             placeholder="Nhập tên sản phẩm bạn muốn tìm kiếm"
                             value="<%=txtInput%>"
@@ -69,7 +69,7 @@
                     <%} else {%>
                     <input
                             type="text"
-                            name="txtSearch"
+                            name="nameP"
                             class="form-control"
                             placeholder="Nhập tên sản phẩm bạn muốn tìm kiếm"
                     />
@@ -86,22 +86,18 @@
         </div>
         <%
             Account acc = (Account) request.getSession().getAttribute("a");
-
         %>
         <div class="col-lg-3 col-6 text-right">
-            <a href="" class="btn border">
-                <i class="fas fa-heart text-primary"></i>
-                <span class="badge">0</span>
-            </a>
+
             <% if (acc != null) {
-                List<ByCart> list = CartService.getAllByIda(String.valueOf(acc.getId()));
+                List<ListProductByCart> list = CartService.getAllByIda(String.valueOf(acc.getIdA()));
             %>
             <a href="cart-show" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge"><%=list.size()%></span>
             </a>
             <%} else {%>
-            <a href="cart-show" class="btn border">
+            <a href="cart1.jsp" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">0</span>
             </a>
@@ -129,11 +125,11 @@
 
             <div class="dropdown-menu rounded-0 m-0">
 
-                <% List<Categories> listCategories = ProductService.getListCategories();
-                    for (Categories category : listCategories) {
+                <% List<Categories> listCategories = CategoryService.getAllCategory();
+                    for (Categories c : listCategories) {
                 %>
-                <a href="categorie?cid=<%=category.getIdC()%>" class="dropdown-item"
-                ><%= category.getNameC()%>
+                <a href="categorie?cid=<%=c.getIdC()%>" class="dropdown-item"
+                ><%= c.getNameC()%>
                 </a>
                 <%}%>
             </div>
@@ -154,8 +150,14 @@
                 >Trang</a
                 >
                 <div class="dropdown-menu rounded-0 m-0">
-                    <a href="cart" class="dropdown-item">Giỏ hàng</a>
+                    <%if (acc != null) {%>
+                    <a href="cart-show" class="dropdown-item">Giỏ hàng</a>
                     <a href="checkout" class="dropdown-item">Thanh toán</a>
+                    <%} else {%>
+                    <a href="cart1.jsp" class="dropdown-item">Giỏ hàng</a>
+                    <a href="checkout1.jsp" class="dropdown-item">Thanh toán</a>
+                    <%}%>
+
                 </div>
             </div>
             <a href="blog" class="nav-item nav-link text-black-1"
@@ -175,21 +177,21 @@
             >
             <%}%>
             <% if (acc != null) {
-                if (acc.getIsAdmin() == 1) {%>
-            <a href="admin.jsp" class="nav-item nav-link text-black-1"
-            >Xin chào Admin
-            </a>
-            <%} else if (acc.getIsAdmin() == 3) {%>
-            <a href="admin.jsp" class="nav-item nav-link text-black-1"
-            >Xin chào Editor
-            </a>
-            <%} else {%>
+                if (acc.getOrderManage() == 0 && acc.getInfoCompanyManage() == 0 && acc.getProductManage() == 0
+                        && acc.getAccountManage() == 0 && acc.getBlogManage() == 0 && acc.getContactManage() == 0
+                        && acc.getSubscibeManage() == 0 && acc.getFaqsManage() == 0) {%>
             <a href="profile" class="nav-item nav-link text-black-1"
             >Xin chào <%= acc.getUser()%>
+            </a>
+            <%} else {%>
+            <a href="admin-home" class="nav-item nav-link text-black-1"
+            >Xin chào Admin
             </a
             >
-            <%}%>
-            <%}%>
+            <%
+                    }
+                }
+            %>
         </div>
     </div>
 
@@ -226,46 +228,27 @@
                 </a>
 
                 <div class="dropdown-menu rounded-0 m-0">
-                    <a href="categorie.jsp" class="dropdown-item"
-                    >Thực phẩm sức khỏe và làm đẹp</a
-                    >
-                    <a href="categorie.jsp" class="dropdown-item"
-                    >Dụng cụ hỗ trợ làm đẹp</a
-                    >
-                    <a href="cart" class="dropdown-item"
-                    >Thực phẩm giảm cân</a
-                    >
-                    <a href="categorie.jsp" class="dropdown-item"
-                    >Mỹ phẩm làm đẹp</a
-                    >
-                    <a href="categorie.jsp" class="dropdown-item"
-                    >Kem chống nắng</a
-                    >
-                    <a href="categorie.jsp" class="dropdown-item"
-                    >Chăm sóc tóc</a
-                    >
-                    <a href="categorie.jsp" class="dropdown-item"
-                    >Chăm sóc da</a
-                    >
-                    <a href="categorie.jsp" class="dropdown-item"
-                    >Khuyến mãi</a
-                    >
+                    <% for (Categories c : listCategories) {
+                    %>
+                    <a href="categorie?cid=<%=c.getIdC()%>" class="dropdown-item"
+                    ><%= c.getNameC()%>
+                    </a>
+                    <%}%>
                     <% if (acc != null) {
-                        if (acc.getIsAdmin() == 1) {%>
-                    <a href="admin.jsp" class="nav-item nav-link text-black-1"
-                    >Xin chào Admin
-                    </a>
-                    <%} else if (acc.getIsAdmin() == 3) {%>
-                    <a href="admin.jsp" class="nav-item nav-link text-black-1"
-                    >Xin chào Editor
-                    </a>
-                    <%} else {%>
+                        if (acc.getOrderManage() == 0 && acc.getInfoCompanyManage() == 0 && acc.getProductManage() == 0
+                                && acc.getAccountManage() == 0 && acc.getBlogManage() == 0 && acc.getContactManage() == 0 && acc.getSubscibeManage() == 0) {%>
                     <a href="profile" class="nav-item nav-link text-black-1"
                     >Xin chào <%= acc.getUser()%>
+                    </a>
+                    <%} else {%>
+                    <a href="admin-checkout" class="nav-item nav-link text-black-1"
+                    >Xin chào Admin
                     </a
                     >
-                    <%}%>
-                    <%}%>
+                    <%
+                            }
+                        }
+                    %>
                 </div>
             </button>
         </nav>
